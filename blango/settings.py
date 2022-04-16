@@ -235,3 +235,29 @@ class Dev(Configuration):
         "level": "DEBUG",
     },
 }
+
+#   PASSWORD_HASHERS = [
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.Argon2PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+# ]
+
+
+# """The algorithm that Django recommends is actually Argon2, which 
+# was the winner of the 2015 Password Hashing Competition. However it 
+# is not enabled by default as it requires installing a third party library.
+# pip3 install django[argon2] 
+# or 
+# pip3 install "django[argon2]""""
+
+    PASSWORD_HASHERS = [
+      'django.contrib.auth.hashers.Argon2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+      'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+  ]
+
+# If you want to make your passwords even more secure and harder 
+# to compute, check out the Password management in Django. It gives you some 
+# example of how to change the parameters for the algorithm you’ve chosen.
