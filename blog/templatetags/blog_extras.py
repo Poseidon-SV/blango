@@ -11,7 +11,12 @@ from django import template
 
 from blog.models import Post
 
+import logging
+
 register = template.Library()
+
+logger = logging.getLogger(__name__)
+
 # @register.filter
 # def author_details(author):
 #     if not isinstance(author, user_model):
@@ -151,3 +156,5 @@ def endcol():
 def recent_posts(post):
     posts = Post.objects.exclude(pk=post.pk)[:5]
     return {"title": "Recent Posts", "posts": posts}
+
+    logger.debug("Loaded %d recent posts for post %d", len(posts), post.pk)
