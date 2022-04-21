@@ -20,9 +20,9 @@
       <!-- {% cache 3600 recent_posts %}  -->
       {% cache 3600 recent_posts post %}
           {% recent_posts post %}
-        {% endcache %} <!-- -->
+      <!-- {% endcache %} not working -->
     {% endcol %}
 
 {% endrow %}
-
+{% endcache %}
 {% endblock %}

@@ -3,6 +3,11 @@ import os
 import dj_database_url
 
 import logging
+## DjDT is no longer loading
+# If you started a new Codio session between when you installed DjDT 
+# and now, Codio has assigned your blog a new IP address. Add /ip in the 
+# blog URL to get the new IP address. Update INTERNAL_IPS in the 
+# settings.py file with this new value.
 """
 Django settings for blango project.
 
@@ -69,6 +74,8 @@ class Dev(Configuration):
         
         "crispy_forms",
         "crispy_bootstrap5",
+        
+        "debug_toolbar",
     ]
 
     MIDDLEWARE = [
@@ -78,7 +85,9 @@ class Dev(Configuration):
     #     'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
-    #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #     'django.middleware.clickjacking.XFrameOptionsMiddleware',    
+
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
     ]
 
     ROOT_URLCONF = 'blango.urls'
@@ -261,3 +270,5 @@ class Dev(Configuration):
 # If you want to make your passwords even more secure and harder 
 # to compute, check out the Password management in Django. It gives you some 
 # example of how to change the parameters for the algorithm you’ve chosen.
+
+    INTERNAL_IPS = ["192.168.10.93"]
